@@ -3,6 +3,7 @@ import { DataStore } from "aws-amplify";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Post } from "../src/models";
+import { withSSRContext } from "aws-amplify";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -11,6 +12,7 @@ export default function Home() {
     fetchPosts();
     async function fetchPosts() {
       const postData = await DataStore.query(Post);
+      console.log(postData);
       setPosts(postData);
     }
     const subscription = DataStore.observe(Post).subscribe(() => fetchPosts());
