@@ -6,7 +6,7 @@ const Post = () => {
 
   return (
     <p>
-      <a href="/">Post: {id} </a>
+      <p href="/">Post id: {id} </p>
     </p>
   );
 };
